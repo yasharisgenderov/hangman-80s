@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>80style</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="header-name">Hangman</h1>
+
+      <div><h3 class="header-style">80s style</h3></div>
+    </div>
+
+    <main>
+        <div class="main-section">
+            <h2 id="songbyname"></h2>
+            <div class="artwork-section">
+              <img id="artwork-img" src="./images/hangman-boardgame.jpg" alt="" />
+            </div>
+            <div class="guess-game-section">
+                <p id="guessAreaPara">Press any key to get started!</p>
+                  <div class="guess-section">
+                    <h3 class="section-name">Current Word</h3>
+                    <p id="guessPara">_ _ _ _ _ _ </p>
+                  </div>
+                  <div class="wrongGuess-section">
+                    <h3 class="section-name">Wrong Guesses</h3>
+                    <p id="wrongGuessPara">Here</p>
+                  </div>
+                  <div class="guessCount-section">
+                    <h3 class="section-name">Number of Guesses Remaining</h3>
+                    <p id="guessCountPara">9</p>
+                  </div>
+                  <div class="win-section">
+                    <h3 class="section-name">Wins</h3>
+                    <p id="winPara" class="">0</p>
+                  </div>
+                  <div class="lose-section">
+                    <h3 class="section-name">Loses</h3>
+                    <p id="losePara" class="">0</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
