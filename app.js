@@ -21,6 +21,41 @@ var wordsArray = [
       artistName : "toto",
         image : "toto.jpg",
         song : "Rosanna"
+    },
+    queen = {
+      artistName : "queen",
+        image : "queen.jpg",  
+        song : "Princes of the Universe"
+    },
+    u2 = {
+      artistName : "u2",
+        image : "u2.jpg",  
+        song : "With or Without You"
+    },
+    metallica = {
+       artistName : "metallica",
+        image : "metallica.jpg",  
+        song : "Master of Puppets"
+    },
+    journey = {
+      artistName : "journey",
+        image : "journey.jpg",  
+        song : "Don't Stop Believin"
+    },
+    inxs = {
+      artistName : "inxs",
+      image : "inxs.jpg",  
+      song : "Need You Tonight"
+    },
+    poison = {
+      artistName : "poison",
+      image : "poison.jpg",  
+      song : "Limelight"
+    },
+    blondie = {
+      artistName : "blondie",
+      image : "blondie.jpg",  
+      song : "Call Me"
     }
 ]
 
@@ -42,16 +77,17 @@ function randomWordFunc(arr) {
 function StartGame() {
   //
    randomWord = randomWordFunc(wordsArray);
+   console.log(randomWord);
   var selectedLettersInWord = randomWord.artistName.split("");
   var bottomLine = selectedLettersInWord.length;
-  console.log(randomWord);
-  console.log(bottomLine);
+  // console.log(bottomLine);
 
   for (var i = 0; i < bottomLine; i++) {
     bottomLineArray.push("_");
   }
   guessParagraph.innerHTML = `${bottomLineArray.join(" ")}`;
 }
+StartGame()
 
 function mySupposition(e) {
   var myLetter = e.key.toLowerCase();
@@ -68,7 +104,7 @@ function mySupposition(e) {
   }
   
   if(bottomLineArray.indexOf("_")===-1){
-    randomWord = randomWordFunc(wordsArray);
+    // randomWord = randomWordFunc(wordsArray);
     console.log(randomWord)
     selectedLettersInWord = randomWord.artistName.split("");
     bottomLine = selectedLettersInWord.length;
@@ -77,15 +113,8 @@ function mySupposition(e) {
     bottomLineArray = [];
     guessCounter = 9;
     winCounter++;
-    for (var i = 0; i < bottomLine; i++) {
-      bottomLineArray.push("_");
-    }
 
-    // for(var i=0;i<wordsArray.length;i++){
-    //   if(randomWord.artistName===wordsArray[i].artistName){
-        
-    //   }
-    // }
+    
     artworkSection.setAttribute("src",`./images/${randomWord.artistName}.jpg`)
     songnameSection.innerHTML = `${randomWord.song} By ${randomWord.artistName}`
     wrongGuessParagraph.innerHTML = `${wrongGuesses}`;
@@ -93,7 +122,7 @@ function mySupposition(e) {
     guessCountParagraph.innerHTML = `${guessCounter}`;
 
     alert("You win")
-   
+    StartGame();
   }
 
   if(selectedLettersInWord.indexOf(myLetter)===1){
@@ -106,15 +135,16 @@ function mySupposition(e) {
     selectedLettersInWord = randomWord.artistName.split("");
     bottomLine = selectedLettersInWord.length;
     bottomLineArray=[];
-    for (var i = 0; i < bottomLine; i++) {
-      bottomLineArray.push("_");
-    }
+    // for (var i = 0; i < bottomLine; i++) {
+    //   bottomLineArray.push("_");
+    // }
     guessCounter = 9;
     guessParagraph.innerHTML = `${bottomLineArray.join(" ")}`;
     wrongGuessParagraph.innerHTML = `${wrongGuesses}`;
     loseParagraph.innerHTML = ` ${loseCounter}`;
     guessCountParagraph.innerHTML = `${guessCounter}`;
     alert("You Lose")
+    StartGame();
   }
 
   guessParagraph.innerHTML = `${bottomLineArray.join(" ")}`;
@@ -124,6 +154,5 @@ function mySupposition(e) {
   // console.log(bottomLineLetter)
 }
 
-StartGame();
 
 window.onkeydown = mySupposition;
